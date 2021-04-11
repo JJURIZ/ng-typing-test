@@ -8,10 +8,24 @@ import { lorem } from 'faker';
 })
 export class AppComponent {
   randomText = lorem.sentence()
-  userText:string = ''
+  enteredText = ''
+  // userText:string = ''
 
   onInput(value:string) {
-    this.userText = value
+    this.enteredText = value
+    // this.userText = value
   }
+
+  compare(randomLetter:string, enteredLetter:string) {
+    if(!enteredLetter){
+      return 'pending';
+    }
+    return randomLetter === enteredLetter ? 'correct' : 'incorrect'
+    }
+  }
+
+  // NOTE: My solution. Based on next steps, altering to follow video. This did work.
+  // compareText() {
+  //   return this.userText === this.randomText
+  // }
   
-}
